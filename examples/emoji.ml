@@ -1,5 +1,5 @@
 open Notty
-open Common
+open! Common
 
 let es = [
   [0x2e; 0x2e; 0x2e; 0x2e];

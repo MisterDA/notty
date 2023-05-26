@@ -5,7 +5,7 @@
  * Demonstrates input parsing.
  *)
 open Notty
-open Common
+open! Common
 
 let pps = Format.pp_print_string
 let ppi = Format.pp_print_int

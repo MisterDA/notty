@@ -10,8 +10,6 @@ CAMLprim value caml_notty_winsize (value vfd) {
   return Val_int (0);
 }
 
-#define __unit() value unit __attribute__((unused))
-
-CAMLprim value caml_notty_winch_number (__unit()) {
+CAMLprim value caml_notty_winch_number (value unit __attribute__((unused))) {
   return Val_int (SIGWINCH);
 }

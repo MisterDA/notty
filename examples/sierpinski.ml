@@ -7,7 +7,7 @@
  * Demonstrates interaction.
  *)
 open Notty
-open Common
+open! Common
 
 let () =
   simpleterm ~s:1

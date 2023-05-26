@@ -1,3 +1,4 @@
 (executable
-  (name speed)
+  (public_name speed)
+  (package notty-bench)
   (libraries notty notty.unix common unmark unmark.cli))

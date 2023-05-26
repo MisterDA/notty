@@ -18,5 +18,6 @@
   (libraries notty compiler-libs.toplevel))
 
 (install
+  (package notty)
   (section lib)
   (files (notty_top_init.ml as top/notty_top_init.ml)))

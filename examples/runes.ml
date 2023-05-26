@@ -7,7 +7,7 @@
  *)
 open Notty
 open Notty.Infix
-open Common
+open! Common
 
 let hpad_sp attr l r i =
   let h = I.height i in

@@ -1,3 +1,7 @@
+## unreleased
+
+* Moved to Dune 3.7 and fixed warnings.
+
 ## v0.2.3 (2022-09-02)
 
 * Moved to Dune.

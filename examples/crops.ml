@@ -6,7 +6,7 @@
  * things.
  *)
 open Notty
-open Common
+open! Common
 
 let hdistribute ?align w imgs =
   let n = List.length imgs in

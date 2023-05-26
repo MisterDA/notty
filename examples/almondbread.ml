@@ -1,5 +1,5 @@
 open Notty
-open Common
+open! Common
 
 let iter = 200
 

@@ -5,7 +5,7 @@
  * Dancing letters.
  *)
 open Notty
-open Common
+open! Common
 
 let nw = 6
 and nh = 5

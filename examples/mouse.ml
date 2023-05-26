@@ -5,7 +5,7 @@
  * Demonstrates mouse input.
  *)
 open Notty
-open Common
+open! Common
 
 let lnv = Uchar.of_int 0x2502
 and lnh = Uchar.of_int 0x2500

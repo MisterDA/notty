@@ -7,7 +7,7 @@
  *)
 open Notty
 open Notty_unix
-open Common
+open! Common
 
 let hpadwith attr c a b i =
   I.(char attr c a 1 <|> i <|> char attr c b 1)

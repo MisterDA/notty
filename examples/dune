@@ -1,3 +1,7 @@
+(env
+  (dev
+    (flags (:standard -w +a-32-44))))
+
 (library
   (name common)
   (modules common)

@@ -5,7 +5,7 @@
  * Demonstrates Lwt interaction.
  *)
 open Notty
-open Common_lwt
+open! Common_lwt
 
 let img s = I.(
   string A.empty (string_of_int s) <-> hpad 2 0 (Images.sierp A.magenta s)

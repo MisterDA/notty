@@ -2,7 +2,7 @@
    See LICENSE.md. *)
 
 open Notty
-open Common
+open! Common
 
 let rec main t (x, y as pos) =
   let img =

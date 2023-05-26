@@ -6,7 +6,7 @@
  *)
 open Notty
 open Notty.Infix
-open Common_lwt
+open! Common_lwt
 
 let flip f a b = f b a
 let rec take n = function

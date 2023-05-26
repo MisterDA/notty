@@ -5,7 +5,7 @@
  * Demonstrates text attributes.
  *)
 open Notty
-open Common
+open! Common
 
 let colors = A.[
   "black"        , black

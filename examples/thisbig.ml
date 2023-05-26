@@ -2,7 +2,7 @@
    See LICENSE.md. *)
 
 open Notty
-open Common
+open! Common
 
 let () =
   Notty_unix.output_image_size @@ fun (w, h) ->
