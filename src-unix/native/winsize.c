@@ -30,9 +30,8 @@ CAMLprim value caml_notty_winsize (value vfd) {
 #endif
 }
 
-#define __unit() value unit __attribute__((unused))
-
-CAMLprim value caml_notty_winch_number (__unit()) {
+CAMLprim value caml_notty_winch_number (value vunit) {
+  (void) vunit;
 #ifdef _WIN32
   return Val_int (0);
 #else
