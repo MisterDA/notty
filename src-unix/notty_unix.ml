@@ -24,7 +24,7 @@ module Private = struct
     | (""|"dumb")         -> fun _ -> dumb
     | _                   -> fun fd -> if Unix.isatty fd then ansi else dumb
 
-  let setup_tcattr ~nosig fd =
+  let setup_tcattr_unix ~nosig fd =
     let open Unix in try
       let tc = tcgetattr fd in
       let tc1 = { tc with c_icanon = false; c_echo = false } in
@@ -33,10 +33,25 @@ module Private = struct
       `Revert (once @@ fun _ -> tcsetattr fd TCSANOW tc)
     with Unix_error (ENOTTY, _, _) -> `Revert ignore
 
-  let set_winch_handler f =
+  let setup_tcattr_win32 ~nosig _fd =
+    ignore nosig;
+    `Revert (once @@ (fun () -> ()))
+
+  let setup_tcattr ~nosig fd =
+    if Sys.win32 then setup_tcattr_win32 ~nosig fd
+    else setup_tcattr_unix ~nosig fd
+
+  let set_winch_handler_unix f =
     let signum = winch_number () in
     let old_hdl = Sys.(signal signum (Signal_handle (fun _ -> f ()))) in
     `Revert (once @@ fun () -> Sys.set_signal signum old_hdl)
+
+  let set_winch_handler_win32 _f =
+    `Revert (once @@ (fun () -> ()))
+
+  let set_winch_handler f =
+    if Sys.win32 then set_winch_handler_win32 f
+    else set_winch_handler_unix f
 
   module Gen_output (O : sig
     type fd
